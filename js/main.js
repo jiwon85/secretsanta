@@ -354,6 +354,8 @@
 
 	var countersAnimate = function() {
 		var counters = $('#fh5co-counters');
+		const WEDDING_DATE = new Date(2017, 8, 17, 0, 0, 0);
+
 		if ( counters.length > 0 ) {	
 
 			counters.waypoint( function( direction ) {
@@ -375,10 +377,21 @@
 					}, 200);
 
 					setTimeout(function() {
+						var difference = WEDDING_DATE - new Date();
 						counters.find('.js-counter').countTo({
-						 	formatter: function (value, options) {
-				      		return value.toFixed(options.decimals);
-				   		},
+							from: difference,
+							to: 0,
+							speed: difference,
+							refreshInterval: 1000,
+							formatter: function (value, options) {
+								value = value / 1000;
+								var days = Math.floor((value % 31536000) / 86400);
+								var hours = Math.floor(((value % 31536000) % 86400) / 3600);
+								var minutes = Math.floor((((value % 31536000) % 86400) % 3600) / 60);
+								var seconds = Math.floor((((value % 31536000) % 86400) % 3600) % 60);
+
+								return days + " Days " + hours + " Hours " + minutes + " Minutes " + seconds + " Seconds";
+							},
 						});
 					}, 400);
 
