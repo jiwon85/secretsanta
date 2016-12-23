@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .engaged {
-    max-width: 104%;
+    max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
     margin: auto;
