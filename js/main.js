@@ -354,7 +354,7 @@
 
 	var countersAnimate = function() {
 		var counters = $('#fh5co-counters');
-		const WEDDING_DATE = new Date(2017, 8, 17, 0, 0, 0);
+		const WEDDING_DATE = new Date(1506205800000);
 
 		if ( counters.length > 0 ) {	
 
